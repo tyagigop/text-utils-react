@@ -5,12 +5,12 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React, { useState } from 'react'
 import About from './components/About';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
@@ -45,21 +45,22 @@ function App() {
   const [alert, setAlert] = useState(null)
   return (
 <>
-  {/* <Router> */}
+<Router>
 <Navbar title={'Text-Util'} about={'About Us'} mode={mode} handleDark={handleDark} xyz={edDark}/>
+  
 <Alert alert={alert}/>
-   {/* <Switch>
+   <Switch>
           <Route path="/about">
-            <About />
+            <About mode={mode}/>
           </Route>
          
-          <Route path="/"> */}
+          <Route path="/">
             <TextForm showAlert={showAlert} heading='Enter your text below' mode={mode}/>
-          {/* </Route>
-        </Switch> */}
-{/* <About/> */}
+          </Route>
+        </Switch>
 
-{/* </Router> */}
+
+</Router>
 </>
   );
 }

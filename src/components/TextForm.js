@@ -59,16 +59,16 @@ export default function TextForm(props) {
     
     <div className={`mb-3 container`}>
     <h1>{props.heading}</h1>
-    <textarea className={`form-control text-${props.mode==='light'?'dark':'light'}`} style={{backgroundColor : props.mode==='light'?'white':'grey'}} id='mybox' onChange={handleChange}  value={text} aria-label="With textarea" rows="8" placeholder='Enter Your Text here.'></textarea>
-    <button  className='btn btn-dark mt-2 mx-1' onClick={handleClickUp}>To Uppercase</button>
-    <button  className='btn btn-primary mt-2 mx-1' onClick={handleClickDown}>To Lowecase</button>
-    <button  className='btn btn-dark mt-2 mx-1' onClick={handleClickClear}>Clear</button>
-    <button  className='btn btn-primary mt-2 mx-1' onClick={handleClickCapitalize}>Capitalize </button>
+    <textarea className={`form-control text-${props.mode==='light'?'dark':'light'}`} style={{backgroundColor : props.mode==='light'?'white':'#151212'}} id='mybox' onChange={handleChange}  value={text} aria-label="With textarea" rows="8" placeholder='Enter Your Text here.'></textarea>
+    <button  className='btn btn-dark mt-2 mx-1 my-1' onClick={handleClickUp}>To Uppercase</button>
+    <button  className='btn btn-primary mt-2 mx-1 my-1' onClick={handleClickDown}>To Lowecase</button>
+    <button  className='btn btn-dark mt-2 mx-1 my-1' onClick={handleClickClear}>Clear</button>
+    <button  className='btn btn-primary mt-2 mx-1 my-1' onClick={handleClickCapitalize}>Capitalize </button>
     </div>
     <div className='container'>
       <h2>Summary</h2>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
-      <p>{0.008*text.split(" ").length} minutes to Read </p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!=0}).length} words and {text.length} characters</p>
+      <p>{0.008*text.split(" ").filter((element)=>{return element.length!=0}).length} minutes to Read </p>
       <h2> Preview</h2>
       <p> {text}</p>
     </div>
